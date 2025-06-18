@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="ninndy" content="width=device-width, initial-scale=1.0" />
+  <title>Start Bootstrap - Situs Pribadi Berwarna</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
+      min-height: 100vh;
+      color: #f0f0f0;
+      margin: 0;
+      padding-top: 70px; /* Menyesuaikan tinggi navbar tetap */
+    }
+    nav.navbar {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    nav.navbar .navbar-brand {
+      font-weight: 900;
+      font-size: 1.7rem;
+      color: #fbbf24;
+      text-shadow: 0 0 5px rgba(251,191,36,0.8);
+      transition: color 0.3s ease;
+    }
+    nav.navbar .navbar-brand:hover {
+      color: #f59e0b;
+      text-shadow: 0 0 12px #f59e0b;
+    }
+    nav.navbar .nav-link {
+      color: #f0f0f0;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav.navbar .nav-link:hover,
+    nav.navbar .nav-link.active {
+      color: #fbbf24;
+      text-shadow: 0 0 8px #fbbf24;
+    }
+    .masthead {
+      background: rgba(255 255 255 / 0.12);
+      backdrop-filter: saturate(180%) blur(20px);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      border-radius: 24px;
+      max-width: 720px;
+      margin: 2rem auto 4rem auto;
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.4);
+      border: 1px solid rgba(255 255 255 / 0.15);
+      user-select: none;
+    }
+    .masthead h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      text-shadow: 0 0 10px rgba(251,191,36,0.9);
+      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+    }
+    .masthead img {
+      border: 6px solid #fbbf24;
+      box-shadow: 0 0 20px #fbbf24aa;
+      max-width: 160px;
+      max-height: 160px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+    }
+    .masthead img:hover {
+      transform: scale(1.08) rotate(5deg);
+      box-shadow: 0 0 35px #fbbf24ff;
+    }
+    .masthead p.lead {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-shadow: 0 0 4px rgba(251,191,36,0.75);
+      margin-top: 0.5rem;
+    }
+    .divider-custom {
+      margin: 2rem auto;
+      width: 110px;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      box-shadow: 0 0 12px #fbbf24, 0 0 24px #fbbf24;
+    }
+    #portfolio {
+      max-width: 1100px;
+      margin: 0 auto 5rem auto;
+      padding: 0 1rem;
+    }
+    #portfolio h2 {
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px #fbbf24bb;
+    }
+    .card {
+      border-radius: 20px;
+      box-shadow:
+        0 4px 20px rgb(251 191 36 / 0.7),
+        0 0 15px rgb(251 191 36 / 0.5);
+      transition: transform 0.3s ease, box-shadow 0.4s ease;
+      background: rgba(255 255 255 / 0.1);
+      backdrop-filter: saturate(180%) blur(10px);
+      color: white;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow:
+        0 8px 30px rgb(251 191 36 / 0.85),
+        0 0 30px rgb(251 191 36 / 0.7);
+    }
+    .card .card-title {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #fbbf24;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 5px #fbbf24cc;
+    }
+    .card .card-text {
+      color: #e0d0a3cc;
+      font-weight: 600;
+      min-height: 3.2rem;
+    }
+    .card-btn {
+      background: #fbbf24;
+      color: #1f2937;
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 8px 24px;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+      box-shadow: 0 0 10px #fbbf24a0;
+    }
+    .card-btn:hover {
+      background: #f59e0b;
+      box-shadow: 0 0 18px #f59e0b;
+      color: #fff;
+      text-decoration: none;
+    }
+    #contact {
+      max-width: 600px;
+      margin: 0 auto 4rem auto;
+      padding: 2rem 1rem;
+      background: rgba(255 255 255 / 0.13);
+      border-radius: 24px;
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.3);
+      color: #f1f1f1;
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    #contact h2 {
+      color: #fbbf24;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 12px #fbbf24;
+    }
+    #contact input, #contact textarea {
+      background: rgba(255 255 255 / 0.2);
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: inset 0 0 8px rgb(251 191 36 / 0.6);
+      transition: background 0.3s ease;
+      resize: none;
+    }
+    #contact input::placeholder, #contact textarea::placeholder {
+      color: #f0e6cacc;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    #contact input:focus, #contact textarea:focus {
+      background: rgba(255 255 255 / 0.35);
+      outline: none;
+      box-shadow: 0 0 14px #fbbf24ff;
+      color: #111827;
+      font-weight: 700;
+    }
+    #contact button[type="submit"] {
+      background: #fbbf24;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 40px;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #1f2937;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      box-shadow: 0 0 20px #fbbf24aa;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+    }
+    #contact button[type="submit"]:hover {
+      background: #f59e0b;
+      box-shadow: 0 0 35px #f59e0bcc;
+      color: #fff;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      color: #fbbf24;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      box-shadow: 0 -4px 10px rgb(251 191 36 / 0.5);
+      padding: 18px 0;
+      text-align: center;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    @media (max-width: 768px) {
+      .masthead {
+        padding: 4rem 1rem;
+        max-width: 90vw;
+      }
+      .masthead h1 {
+        font-size: 2.4rem;
+      }
+      #portfolio {
+        max-width: 90vw;
+      }
+      #contact {
+        max-width: 90vw;
+        padding: 1.5rem 1rem;
+      }
+      .card {
+        box-shadow: 0 2px 12px rgba(251,191,36,0.5);
+      }
+      .card:hover {
+        transform: translateY(-6px) scale(1.01);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigasi -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Star Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigasi" tabindex="0">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" tabindex="-1">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio" tabindex="0">Portofolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" tabindex="0">Kontak</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead" role="banner" aria-label="Perkenalan dan ringkasan pribadi">
+    <div class="container">
+      <img src="iiii.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+
+      <h1 tabindex="0">Halo, Saya Ninndy febiola Ap</h1>
+      <div class="divider-custom" aria-hidden="true"></div>
+      <p class="lead" tabindex="0">Pengembangan Web yang berisi aktivitas saya</p>
+    </div>
+  </header>
+
+  <!-- Portofolio -->
+  <section class="page-section" id="portfolio" tabindex="0" aria-label="Proyek portofolio">
+    <div class="container">
+      <h2>Portofolio</h2>
+      <div class="row" role="list">
+
+        <!-- Item Portofolio 1 -->
+        <div class="col-md-4 mb-4" role="listitem">
+          <div class="card" tabindex="0" aria-describedby="project1">
+            <img src="uuuu.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+            <div class="card-body">
+              <h5 class="card-title">KULIAH</h5>
+              <p class="card-text" id="desc-project1">Jadi mahasiswa itu campur aduk—capek, seru, pusing, tapi bikin bangga. Tugas numpuk, waktu tidur berantakan, tapi semua terbayar saat ngerti materi dan bisa berbagi tawa bareng teman. Kita belajar bukan cuma dari kelas, tapi juga dari hidup..</p>
+              <button type="button" class="card-btn btn" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="KULIAH"
+              data-image="uuuu.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+              Lihat Proyek</button>
+            </div>
+          </div>
+        </div>
+        <!-- Item Portofolio 2 -->
+        <div class="col-md-4 mb-4" role="listitem">
+          <div class="card" tabindex="0" aria-describedby="desc-project2">
+            <img src="nnnnn.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+
+            <div class="card-body">
+              <h5 class="card-title">ORGANISASI</h5>
+              <p class="card-text" id="desc-project2">Ikut organisasi di kampus ngajarin aku cara kerja tim, komunikasi, dan manajemen waktu. Awalnya gugup, tapi lama-lama terbiasa ngatur acara, rapat, dan tanggung jawab. Dari situ aku belajar bahwa kerja keras dan saling support itu kunci sukses bareng-bareng.</p>
+              <button type="button" class="card-btn btn" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="ORGANISASI"
+              data-image="nnnnn.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+		Lihat Proyek</button>
+            </div>
+          </div>
+        </div>
+        <!-- Item Portofolio 3 -->
+        <div class="col-md-4 mb-4" role="listitem">
+          <div class="card" tabindex="0" aria-describedby="desc-project3">
+            <img src="yyyy.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+
+            <div class="card-body">
+              <h5 class="card-title">HEALING</h5>
+              <p class="card-text" id="desc-project3">🎉 "Kuliah penting, tapi bahagia juga perlu. Luangkan waktu untuk tertawa."
+
+🌈 "Jangan lupa, hidup bukan cuma tentang tugas dan deadline—ada bahagia yang harus diperjuangkan juga."
+
+🍃 "Sesibuk apa pun kamu, sisihkan waktu untuk menikmati hidup. Karena kamu juga butuh istirahat untuk tumbuh."
+
+💫 "Bersenang-senang itu bukan buang waktu, tapi cara kita menjaga waras di tengah hiruk-pikuk tanggung jawab.".</p>
+              <button type="button" class="card-btn btn" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="HEALING"
+              data-image="yyyy.jpg" alt="Foto Ninndy 3" class="foto-animasi">
+              Lihat Proyek</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section class="page-section bg-light" id="contact" tabindex="0" aria-label="Formulir kontak">
+    <div class="container">
+      <h2>Kontak Saya</h2>
+      <form class="mt-4" aria-describedby="contactFormDesc" novalidate>
+        <p id="contactFormDesc" class="visually-hidden">Gunakan formulir ini untuk mengirim pesan. Semua kolom wajib diisi.</p>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Nama Anda" aria-required="true" required tabindex="0" />
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Email Anda" aria-required="true" required tabindex="0" />
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="5" placeholder="Pesan" aria-required="true" required tabindex="0"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" tabindex="0">Kirim</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer tabindex="0" role="contentinfo">
+    <div class="container">
+      <p class="mb-0" tabindex="0">© Situs Anda 2025</p>
+    </div>
+  </footer>
+
+  <!-- Modal Detail Proyek -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-light rounded-4" style="border: none;">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="projectModalLabel"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <img src="" alt="Gambar proyek" id="projectModalImage" class="img-fluid rounded mb-3" style="max-height: 400px; object-fit: cover; width: 100%;"/ src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/60a2adb4-3277-4451-b1c0-e2140acbef73.png">
+          <p id="projectModalDesc" style="font-size: 1.15rem; line-height: 1.5;"></p>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    const projectModal = document.getElementById('projectModal');
+    projectModal.addEventListener('show.bs.modal', event => {
+      const button = event.relatedTarget;
+      const title = button.getAttribute('data-title');
+      const image = button.getAttribute('data-image');
+      const desc = button.getAttribute('data-desc');
+
+      const modalTitle = projectModal.querySelector('.modal-title');
+      const modalImage = projectModal.querySelector('#projectModalImage');
+      const modalDesc = projectModal.querySelector('#projectModalDesc');
+
+      modalTitle.textContent = title;
+      modalImage.src = image;
+      modalImage.alt = `Gambar proyek: ${title}`;
+      modalDesc.textContent = desc;
+    });
+  </script>
+</body>
+</html>
+
